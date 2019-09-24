@@ -8,12 +8,14 @@
 
 import React, { Fragment } from 'react';
 import {
+  Alert,
   SafeAreaView,
-  StyleSheet,
   ScrollView,
-  View,
-  Text,
   StatusBar,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
 } from 'react-native';
 import {
   Colors,
@@ -21,7 +23,7 @@ import {
 
 // Internal Dependencies
 import AppLogo from './components/AppLogo';
-// import WarningEmoji from './components/WarningEmoji';
+import Separator from './components/Separator';
 
 // Component Definition
 const App = () => {
@@ -42,6 +44,7 @@ const App = () => {
           <View style={styles.header}>
             <AppLogo />
           </View>
+          <Separator />
           <View style={styles.section}>
             {/* <WarningEmoji /> */}
             <View style={styles.sectionTextContainer}>
@@ -49,6 +52,16 @@ const App = () => {
                 Beyond this portal lies hilarity.
               </Text>
             </View>
+            <TouchableOpacity
+              accessibilityLabel="Pick a random joke."
+              onPress={() => Alert.alert('hello')}
+            >
+              <Text
+                style={styles.button}
+              >
+                Talk to me, Goose
+              </Text>
+            </TouchableOpacity>
           </View>
         </ScrollView>
       </SafeAreaView>
@@ -57,6 +70,18 @@ const App = () => {
 };
 
 const styles = StyleSheet.create({
+  button: {
+    backgroundColor: 'lavender',
+    borderColor: 'white',
+    borderWidth: 1,
+    borderRadius: 12,
+    color: '#333',
+    fontSize: 24,
+    fontWeight: 'bold',
+    overflow: 'hidden',
+    padding: 12,
+    textAlign: 'center',
+  },
   header: {
     backgroundColor: '#f5f5f5',
     paddingBottom: 40,
