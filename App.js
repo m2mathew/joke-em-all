@@ -24,6 +24,7 @@ import {
 // Internal Dependencies
 import AppLogo from './components/AppLogo';
 import Separator from './components/Separator';
+import getRandomButtonTitle from './utils/get-random-button-title';
 
 // Component Definition
 const App = () => {
@@ -35,7 +36,6 @@ const App = () => {
           contentInsetAdjustmentBehavior="automatic"
           style={styles.scrollView}
         >
-          {/* <Header /> */}
           {global.HermesInternal == null ? null : (
             <View style={styles.engine}>
               <Text style={styles.footer}>Engine: Hermes</Text>
@@ -46,7 +46,6 @@ const App = () => {
           </View>
           <Separator />
           <View style={styles.section}>
-            {/* <WarningEmoji /> */}
             <View style={styles.sectionTextContainer}>
               <Text style={styles.text}>
                 Beyond this portal lies hilarity.
@@ -59,7 +58,7 @@ const App = () => {
               <Text
                 style={styles.button}
               >
-                Talk to me, Goose
+                {getRandomButtonTitle()}
               </Text>
             </TouchableOpacity>
           </View>
@@ -90,10 +89,8 @@ const styles = StyleSheet.create({
   },
   section: {
     backgroundColor: '#ffffff',
-    // backgroundColor: '#282C34',
     paddingVertical: 40,
     paddingHorizontal: 32,
-    // paddingTop: 96,
   },
   sectionTextContainer: {
     paddingVertical: 32,
@@ -101,6 +98,7 @@ const styles = StyleSheet.create({
   text: {
     color: 'purple',
     fontSize: 32,
+    paddingBottom: 32,
   },
   scrollView: {
     backgroundColor: Colors.lighter,
